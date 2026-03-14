@@ -1,0 +1,59 @@
+<!-- Profile page for viewing account details and resetting the current password. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoreInventory | My Profile</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body data-page="profile">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="app-main">
+      <header id="navbar" class="topbar"></header>
+      <main class="page-body two-column">
+        <section class="page-header-block">
+          <div>
+            <span class="eyebrow">Account</span>
+            <h1>My Profile</h1>
+            <p>Review your account details and update your password without leaving the platform.</p>
+          </div>
+          <div class="surface-note">
+            Profile access is available from the top-right dropdown on every app page.
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <span class="eyebrow">Summary</span>
+              <h2>Account Overview</h2>
+            </div>
+          </div>
+          <div id="profile-summary"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <span class="eyebrow">Security</span>
+              <h2>Reset Password</h2>
+            </div>
+          </div>
+          <form id="profile-password-form" class="stack-form">
+            <label><span>Current password</span><input type="password" name="current_password" required /></label>
+            <label><span>New password</span><input type="password" name="new_password" minlength="6" required /></label>
+            <button type="submit" class="primary-button">Update Password</button>
+          </form>
+          <p id="profile-message" class="status-message"></p>
+        </section>
+      </main>
+    </section>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/layout.js"></script>
+  <script src="./js/profile.js"></script>
+</body>
+</html>

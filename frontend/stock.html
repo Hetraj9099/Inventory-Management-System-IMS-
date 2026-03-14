@@ -1,18 +1,46 @@
-<!-- Placeholder page for future stock visibility and warehouse balance screens. -->
+<!-- Stock page for warehouse-level inventory visibility and low stock monitoring. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoreInventory Stock</title>
+  <title>CoreInventory | Stock</title>
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
-<body>
-  <main class="page-content">
-    <section class="card">
-      <h1>Stock</h1>
-      <p>Stock monitoring module placeholder.</p>
+<body data-page="stock">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="app-main">
+      <header id="navbar" class="topbar"></header>
+      <main class="page-body">
+        <section class="page-header-block">
+          <div>
+            <span class="eyebrow">Inventory View</span>
+            <h1>Stock by Warehouse Location</h1>
+            <p>Review balances across warehouses and locations with quick low-stock filtering for replenishment planning.</p>
+          </div>
+          <div class="surface-note">
+            Search by SKU, warehouse, and category to narrow inventory instantly.
+          </div>
+        </section>
+
+        <section class="panel">
+          <form id="stock-filter-form" class="filter-grid">
+            <label><span>Search</span><input type="text" name="search" placeholder="Search product or SKU" /></label>
+            <label><span>Warehouse</span><select name="warehouseId"></select></label>
+            <label><span>Category</span><select name="categoryId"></select></label>
+            <label class="checkbox-label"><input type="checkbox" name="lowStockOnly" value="true" />Low stock only</label>
+            <button type="submit" class="secondary-button">Apply</button>
+          </form>
+
+          <div id="stock-table" class="table-wrap"></div>
+        </section>
+      </main>
     </section>
-  </main>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/layout.js"></script>
+  <script src="./js/stock.js"></script>
 </body>
 </html>

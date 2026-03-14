@@ -1,19 +1,42 @@
-<!-- Placeholder page for future receipts, deliveries, transfers, and adjustments flows. -->
+<!-- Operations page for quick access to receipt, delivery, transfer, and adjustment flows. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoreInventory Operations</title>
+  <title>CoreInventory | Operations</title>
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
-<body>
-  <main class="page-content">
-    <section class="card">
-      <h1>Operations</h1>
-      <p id="operations-status">Operations module placeholder.</p>
+<body data-page="operations">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="app-main">
+      <header id="navbar" class="topbar"></header>
+      <main class="page-body">
+        <section class="page-header-block">
+          <div>
+            <span class="eyebrow">Operations</span>
+            <h1>Warehouse Activity</h1>
+            <p>Create and monitor receipts, deliveries, transfers, and stock adjustments.</p>
+          </div>
+          <div class="surface-note">
+            Quick access to all inventory movement documents for fast demo navigation.
+          </div>
+        </section>
+
+        <section class="operations-grid" id="operations-overview"></section>
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Recent Documents</h2>
+          </div>
+          <div id="operations-feed" class="table-wrap"></div>
+        </section>
+      </main>
     </section>
-  </main>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/layout.js"></script>
   <script src="./js/operations.js"></script>
 </body>
 </html>
