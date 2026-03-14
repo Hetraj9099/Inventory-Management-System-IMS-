@@ -1,0 +1,10 @@
+# Ignore local dependencies, environment files, and runtime artifacts for this scaffold.
+node_modules/
+.env
+.env.*
+dist/
+coverage/
+logs/
+*.log
+Thumbs.db
+.DS_Store

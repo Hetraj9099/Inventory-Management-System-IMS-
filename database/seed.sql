@@ -1,0 +1,2 @@
+-- Placeholder seed file for future development-only starter records.
+-- Intentionally left without static application datasets.

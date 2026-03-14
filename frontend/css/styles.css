@@ -1,0 +1,47 @@
+/* Basic placeholder styling for the CoreInventory frontend scaffold. */
+:root {
+  --bg: #f4f6f8;
+  --surface: #ffffff;
+  --border: #d7dde5;
+  --text: #1f2933;
+  --muted: #52606d;
+  --accent: #0b6e4f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.page-header,
+.page-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.link-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.link-grid a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
