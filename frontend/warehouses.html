@@ -1,0 +1,86 @@
+<!-- Warehouses page for admin warehouse and location management. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoreInventory | Warehouses</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body data-page="warehouses">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="app-main">
+      <header id="navbar" class="topbar"></header>
+      <main class="page-body two-column">
+        <section class="page-header-block">
+          <div>
+            <span class="eyebrow">Admin</span>
+            <h1>Warehouses & Locations</h1>
+            <p>Create warehouse masters, organize storage locations, and keep your network clean for operations.</p>
+          </div>
+          <div class="surface-note">
+            Admin-only controls for warehouse setup, location structure, and activation status.
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <span class="eyebrow">Admin</span>
+              <h1>Warehouses</h1>
+            </div>
+          </div>
+
+          <div id="warehouses-table" class="table-wrap"></div>
+
+          <form id="warehouse-form" class="stack-form compact-form">
+            <input type="hidden" name="id" />
+            <label><span>Name</span><input type="text" name="name" required /></label>
+            <label><span>Code</span><input type="text" name="code" required /></label>
+            <label><span>Address</span><textarea name="address" rows="3"></textarea></label>
+            <label class="checkbox-label"><input type="checkbox" name="is_active" checked />Warehouse is active</label>
+            <div class="button-row">
+              <button type="submit" class="primary-button">Save Warehouse</button>
+              <button type="button" id="warehouse-form-reset" class="ghost-button">Clear</button>
+            </div>
+          </form>
+          <p id="warehouse-message" class="status-message"></p>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <span class="eyebrow">Admin</span>
+              <h1>Locations</h1>
+            </div>
+          </div>
+
+          <label class="stack-form">
+            <span>Warehouse</span>
+            <select id="location-warehouse-select"></select>
+          </label>
+
+          <div id="locations-table" class="table-wrap"></div>
+
+          <form id="location-form" class="stack-form compact-form">
+            <input type="hidden" name="id" />
+            <label><span>Name</span><input type="text" name="name" required /></label>
+            <label><span>Code</span><input type="text" name="code" required /></label>
+            <label class="checkbox-label"><input type="checkbox" name="is_active" checked />Location is active</label>
+            <div class="button-row">
+              <button type="submit" class="primary-button">Save Location</button>
+              <button type="button" id="location-form-reset" class="ghost-button">Clear</button>
+            </div>
+          </form>
+          <p id="location-message" class="status-message"></p>
+        </section>
+      </main>
+    </section>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/layout.js"></script>
+  <script src="./js/warehouses.js"></script>
+</body>
+</html>

@@ -1,19 +1,95 @@
-<!-- Placeholder page for future dashboard views and KPI summaries. -->
+<!-- Dashboard page for inventory KPIs, low stock alerts, and recent movement activity. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoreInventory Dashboard</title>
+  <title>CoreInventory | Dashboard</title>
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
-<body>
-  <main class="page-content">
-    <section class="card">
-      <h1>Dashboard</h1>
-      <p id="dashboard-status">Dashboard module placeholder.</p>
+<body data-page="dashboard">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="app-main">
+      <header id="navbar" class="topbar"></header>
+      <main class="page-body">
+        <section class="page-header-block">
+          <div>
+            <span class="eyebrow">Dashboard</span>
+            <h1>Inventory Command Center</h1>
+            <p>Monitor real-time stock, pending operations, and movement history from one place.</p>
+          </div>
+          <div class="surface-note">
+            Centralized warehouse visibility for products, operations, and traceable stock movements.
+          </div>
+        </section>
+
+        <section class="panel">
+          <form id="dashboard-filters" class="filter-grid">
+            <label>
+              <span>Warehouse</span>
+              <select name="warehouse"></select>
+            </label>
+            <label>
+              <span>Category</span>
+              <select name="category"></select>
+            </label>
+            <label>
+              <span>Document Type</span>
+              <select name="document_type">
+                <option value="">All</option>
+                <option value="RECEIPT">Receipt</option>
+                <option value="DELIVERY">Delivery</option>
+                <option value="TRANSFER">Transfer</option>
+                <option value="ADJUSTMENT">Adjustment</option>
+              </select>
+            </label>
+            <button type="submit" class="primary-button">Apply Filters</button>
+          </form>
+        </section>
+
+        <section id="kpi-grid" class="kpi-grid"></section>
+
+        <section class="dashboard-grid">
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <span class="eyebrow">Operations</span>
+                <h2>Recent Operations</h2>
+                <p>Latest validated stock movements across receipts, deliveries, transfers, and adjustments.</p>
+              </div>
+            </div>
+            <div id="recent-activity-list"></div>
+          </article>
+
+          <div class="dashboard-side-stack">
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Alerts</span>
+                  <h2>Low Stock Watchlist</h2>
+                </div>
+              </div>
+              <div id="low-stock-list"></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <span class="eyebrow">Timeline</span>
+                  <h2>Inventory Activity Timeline</h2>
+                </div>
+              </div>
+              <div id="activity-timeline"></div>
+            </article>
+          </div>
+        </section>
+      </main>
     </section>
-  </main>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/layout.js"></script>
   <script src="./js/dashboard.js"></script>
 </body>
 </html>

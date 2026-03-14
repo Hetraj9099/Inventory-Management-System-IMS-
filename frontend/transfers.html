@@ -1,0 +1,64 @@
+<!-- Transfers page for internal stock movement between warehouses and locations. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoreInventory | Transfers</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body data-page="transfers">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="app-main">
+      <header id="navbar" class="topbar"></header>
+      <main class="page-body two-column">
+        <section class="page-header-block">
+          <div>
+            <span class="eyebrow">Internal Moves</span>
+            <h1>Transfers</h1>
+            <p>Move stock between warehouses and locations without changing total inventory on hand.</p>
+          </div>
+          <div class="surface-note">
+            Transfers preserve full movement history while balancing source and destination locations.
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header"><h1>Transfers</h1></div>
+          <div id="transfers-table" class="table-wrap"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-header"><h2>Create Transfer</h2></div>
+          <form id="transfer-form" class="stack-form">
+            <label><span>From Warehouse</span><select name="from_warehouse_id" required></select></label>
+            <label><span>From Location</span><select name="from_location_id" required></select></label>
+            <label><span>To Warehouse</span><select name="to_warehouse_id" required></select></label>
+            <label><span>To Location</span><select name="to_location_id" required></select></label>
+            <label>
+              <span>Status</span>
+              <select name="status">
+                <option value="draft">Draft</option>
+                <option value="validated">Validate Immediately</option>
+              </select>
+            </label>
+            <label><span>Notes</span><textarea name="notes" rows="3"></textarea></label>
+            <div class="line-items-header">
+              <h3>Transfer Items</h3>
+              <button type="button" id="add-transfer-item" class="ghost-button">Add Item</button>
+            </div>
+            <div id="transfer-items" class="line-items"></div>
+            <button type="submit" class="primary-button">Save Transfer</button>
+          </form>
+          <p id="transfer-message" class="status-message"></p>
+        </section>
+      </main>
+    </section>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/layout.js"></script>
+  <script src="./js/operations.js"></script>
+  <script src="./js/transfers.js"></script>
+</body>
+</html>

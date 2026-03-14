@@ -1,8 +1,8 @@
 {
-  "_comment": "Root package manifest placeholder for installing and starting the CoreInventory scaffold.",
+  "_comment": "Root package manifest for the CoreInventory hackathon MVP.",
   "name": "coreinventory",
   "version": "1.0.0",
-  "description": "Initial full-stack scaffold for the CoreInventory hackathon project.",
+  "description": "Full-stack inventory management system for hackathon demos and local development.",
   "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js",
@@ -17,9 +17,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.11.5",
     "pg": "^8.13.1"
   }

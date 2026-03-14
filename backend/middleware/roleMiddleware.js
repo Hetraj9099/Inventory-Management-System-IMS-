@@ -1,7 +1,15 @@
-// Placeholder role-based authorization middleware for future access control rules.
-function roleMiddleware(..._allowedRoles) {
-  return (_req, _res, next) => {
-    next();
+// Role-based authorization middleware for admin, manager, and staff access control.
+function roleMiddleware(...allowedRoles) {
+  return (req, res, next) => {
+    if (!req.user) {
+      return res.status(401).json({ message: "Authentication is required before role checks." });
+    }
+
+    if (!allowedRoles.includes(req.user.role)) {
+      return res.status(403).json({ message: "You do not have permission to access this resource." });
+    }
+
+    return next();
   };
 }
 

@@ -1,4 +1,4 @@
-// Central database configuration placeholder for PostgreSQL and optional MySQL support.
+// Central database configuration for PostgreSQL with optional MySQL placeholders.
 module.exports = {
   postgres: {
     host: process.env.DB_HOST || "localhost",
@@ -6,6 +6,7 @@ module.exports = {
     database: process.env.DB_NAME || "coreinventory",
     user: process.env.DB_USER || "postgres",
     password: process.env.DB_PASSWORD || "password",
+    ssl: process.env.DB_SSL === "true" ? { rejectUnauthorized: false } : false,
   },
   mysql: {
     host: process.env.MYSQL_HOST || "localhost",

@@ -1,30 +1,94 @@
-<!-- Placeholder landing page for the CoreInventory frontend scaffold. -->
+<!-- Login and signup page for the CoreInventory demo frontend. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoreInventory</title>
+  <title>CoreInventory | Login</title>
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
-<body>
-  <header class="page-header">
-    <h1>CoreInventory</h1>
-    <p>Inventory Management System scaffold for collaborative development.</p>
-  </header>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="auth-brand">
+      <h1>CoreInventory</h1>
+      <p>Centralized inventory tracking for receipts, deliveries, transfers, adjustments, and real-time stock visibility.</p>
+      <ul class="feature-list">
+        <li>Real-time stock balances by warehouse location</li>
+        <li>Full stock movement ledger for traceability</li>
+        <li>Role-based access for admin, manager, and staff</li>
+      </ul>
+    </section>
 
-  <main class="page-content">
-    <section class="card">
-      <h2>Frontend Starter</h2>
-      <p>This page is a placeholder entry point for the future web interface.</p>
-      <nav class="link-grid">
-        <a href="./dashboard.html">Dashboard</a>
-        <a href="./products.html">Products</a>
-        <a href="./operations.html">Operations</a>
-        <a href="./stock.html">Stock</a>
-        <a href="./history.html">History</a>
-      </nav>
+    <section class="auth-card">
+      <div class="tab-row">
+        <button class="tab-button active" data-auth-tab="login">Login</button>
+        <button class="tab-button" data-auth-tab="signup">Signup</button>
+      </div>
+
+      <form id="login-form" class="stack-form">
+        <h2>Welcome back</h2>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" placeholder="admin@coreinventory.local" required />
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" name="password" placeholder="Enter your password" required />
+        </label>
+        <button type="submit" class="primary-button">Login</button>
+        <button type="button" id="show-forgot-password" class="text-button align-left">Forgot password? Reset with OTP</button>
+      </form>
+
+      <form id="forgot-password-form" class="stack-form hidden">
+        <h2>Reset password with OTP</h2>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" placeholder="your@email.com" required />
+        </label>
+        <button type="button" id="request-otp-button" class="secondary-button">Request OTP</button>
+        <div id="otp-display" class="otp-box hidden"></div>
+        <label>
+          <span>OTP</span>
+          <input type="text" name="otp" inputmode="numeric" maxlength="6" placeholder="Enter 6-digit OTP" required />
+        </label>
+        <label>
+          <span>New password</span>
+          <input type="password" name="new_password" placeholder="Minimum 6 characters" required />
+        </label>
+        <button type="submit" class="primary-button">Reset password</button>
+        <button type="button" id="back-to-login" class="ghost-button">Back to login</button>
+        <p class="helper-text">Local demo mode shows the OTP on screen because email delivery is not configured.</p>
+      </form>
+
+      <form id="signup-form" class="stack-form hidden">
+        <h2>Create account</h2>
+        <label>
+          <span>Full name</span>
+          <input type="text" name="name" placeholder="Jane Manager" required />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" placeholder="jane@coreinventory.local" required />
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" name="password" placeholder="Minimum 6 characters" required />
+        </label>
+        <label>
+          <span>Role</span>
+          <select name="role">
+            <option value="inventory_manager">Inventory Manager</option>
+            <option value="warehouse_staff">Warehouse Staff</option>
+          </select>
+        </label>
+        <button type="submit" class="primary-button">Create account</button>
+      </form>
+
+      <p id="auth-message" class="status-message"></p>
     </section>
   </main>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/auth.js"></script>
 </body>
 </html>

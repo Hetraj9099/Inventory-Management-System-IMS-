@@ -1,19 +1,64 @@
-<!-- Placeholder page for future product list and product management screens. -->
+<!-- Product page for catalog management, SKU search, and category filtering. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoreInventory Products</title>
+  <title>CoreInventory | Products</title>
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
-<body>
-  <main class="page-content">
-    <section class="card">
-      <h1>Products</h1>
-      <p id="products-status">Products module placeholder.</p>
+<body data-page="products">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="app-main">
+      <header id="navbar" class="topbar"></header>
+      <main class="page-body two-column">
+        <section class="panel">
+          <div class="page-header-block">
+            <div>
+              <span class="eyebrow">Catalog</span>
+              <h1>Products</h1>
+              <p>Manage your product master data, filter by category, and keep stock thresholds demo-ready.</p>
+            </div>
+            <div class="surface-note">
+              Fast SKU lookup, category filtering, and visibility into total stock by product.
+            </div>
+          </div>
+          <form id="product-filter-form" class="filter-grid compact">
+            <label>
+              <span>Search</span>
+              <input type="text" name="search" placeholder="Search by product name or SKU" />
+            </label>
+            <label>
+              <span>Category</span>
+              <select name="category_id"></select>
+            </label>
+            <button type="submit" class="secondary-button">Filter</button>
+          </form>
+
+          <div id="products-table" class="table-wrap"></div>
+        </section>
+
+        <section class="panel" id="product-form-panel">
+          <div class="panel-header">
+            <h2>Add Product</h2>
+          </div>
+          <form id="product-form" class="stack-form">
+            <label><span>Name</span><input type="text" name="name" required /></label>
+            <label><span>SKU</span><input type="text" name="sku" required /></label>
+            <label><span>Category</span><select name="category_id"></select></label>
+            <label><span>Unit of Measure</span><input type="text" name="unit_of_measure" placeholder="pcs" required /></label>
+            <label><span>Reorder Level</span><input type="number" name="reorder_level" min="0" step="1" value="0" /></label>
+            <button type="submit" class="primary-button">Save Product</button>
+          </form>
+          <p id="product-message" class="status-message"></p>
+        </section>
+      </main>
     </section>
-  </main>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/layout.js"></script>
   <script src="./js/products.js"></script>
 </body>
 </html>

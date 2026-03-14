@@ -1,18 +1,55 @@
-<!-- Placeholder page for future stock ledger and move history views. -->
+<!-- Move history page for traceable stock ledger activity. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoreInventory History</title>
+  <title>CoreInventory | Move History</title>
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
-<body>
-  <main class="page-content">
-    <section class="card">
-      <h1>History</h1>
-      <p>Stock ledger and movement history placeholder.</p>
+<body data-page="history">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="app-main">
+      <header id="navbar" class="topbar"></header>
+      <main class="page-body">
+        <section class="page-header-block">
+          <div>
+            <span class="eyebrow">Ledger</span>
+            <h1>Stock Move History</h1>
+            <p>Track every receipt, delivery, transfer, and adjustment from a centralized movement ledger.</p>
+          </div>
+          <div class="surface-note">
+            Inventory traceability for audit trails, reporting, and warehouse visibility.
+          </div>
+        </section>
+
+        <section class="panel">
+          <form id="history-filter-form" class="filter-grid">
+            <label><span>Search</span><input type="text" name="search" placeholder="Search product or SKU" /></label>
+            <label><span>Warehouse</span><select name="warehouseId"></select></label>
+            <label><span>Category</span><select name="categoryId"></select></label>
+            <label>
+              <span>Action</span>
+              <select name="actionType">
+                <option value="">All</option>
+                <option value="RECEIPT">Receipt</option>
+                <option value="DELIVERY">Delivery</option>
+                <option value="TRANSFER">Transfer</option>
+                <option value="ADJUSTMENT">Adjustment</option>
+              </select>
+            </label>
+            <button type="submit" class="secondary-button">Apply</button>
+          </form>
+
+          <div id="history-table" class="table-wrap"></div>
+        </section>
+      </main>
     </section>
-  </main>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/layout.js"></script>
+  <script src="./js/history.js"></script>
 </body>
 </html>

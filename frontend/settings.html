@@ -1,0 +1,63 @@
+<!-- Settings page for admin user management and category maintenance. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoreInventory | Settings</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body data-page="settings">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="app-main">
+      <header id="navbar" class="topbar"></header>
+      <main class="page-body two-column">
+        <section class="page-header-block">
+          <div>
+            <span class="eyebrow">Administration</span>
+            <h1>Settings</h1>
+            <p>Manage users, roles, and product categories from a single admin control center.</p>
+          </div>
+          <div class="surface-note">
+            Admin permissions include user lifecycle management, RBAC control, and category maintenance.
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header"><h1>Users</h1></div>
+          <div id="users-table" class="table-wrap"></div>
+          <form id="user-form" class="stack-form compact-form">
+            <label><span>Name</span><input type="text" name="name" required /></label>
+            <label><span>Email</span><input type="email" name="email" required /></label>
+            <label><span>Password</span><input type="password" name="password" required /></label>
+            <label>
+              <span>Role</span>
+              <select name="role">
+                <option value="admin">Admin</option>
+                <option value="inventory_manager">Inventory Manager</option>
+                <option value="warehouse_staff">Warehouse Staff</option>
+              </select>
+            </label>
+            <button type="submit" class="primary-button">Create User</button>
+          </form>
+        </section>
+        <section class="panel">
+          <div class="panel-header"><h1>Product Categories</h1></div>
+          <div id="categories-table" class="table-wrap"></div>
+          <form id="category-form" class="stack-form compact-form">
+            <label><span>Name</span><input type="text" name="name" required /></label>
+            <label><span>Description</span><textarea name="description" rows="3"></textarea></label>
+            <button type="submit" class="primary-button">Add Category</button>
+          </form>
+          <p id="settings-message" class="status-message"></p>
+        </section>
+      </main>
+    </section>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/layout.js"></script>
+  <script src="./js/settings.js"></script>
+</body>
+</html>

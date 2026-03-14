@@ -1,0 +1,65 @@
+<!-- Deliveries page for outbound shipments and delivery validation. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoreInventory | Delivery Orders</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body data-page="deliveries">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="app-main">
+      <header id="navbar" class="topbar"></header>
+      <main class="page-body two-column">
+        <section class="page-header-block">
+          <div>
+            <span class="eyebrow">Outbound</span>
+            <h1>Delivery Orders</h1>
+            <p>Pick, pack, validate, and dispatch outgoing shipments while maintaining accurate stock levels.</p>
+          </div>
+          <div class="surface-note">
+            Delivery status flows from draft to dispatch with stock deductions logged in real time.
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header"><h1>Delivery Orders</h1></div>
+          <div id="deliveries-table" class="table-wrap"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-header"><h2>Create Delivery</h2></div>
+          <form id="delivery-form" class="stack-form">
+            <label><span>Customer</span><input type="text" name="customer_name" required /></label>
+            <label><span>Warehouse</span><select name="warehouse_id" required></select></label>
+            <label><span>Location</span><select name="location_id" required></select></label>
+            <label>
+              <span>Status</span>
+              <select name="status">
+                <option value="draft">Draft</option>
+                <option value="picked">Picked</option>
+                <option value="packed">Packed</option>
+                <option value="validated">Validate and Dispatch</option>
+              </select>
+            </label>
+            <label><span>Notes</span><textarea name="notes" rows="3"></textarea></label>
+            <div class="line-items-header">
+              <h3>Delivery Items</h3>
+              <button type="button" id="add-delivery-item" class="ghost-button">Add Item</button>
+            </div>
+            <div id="delivery-items" class="line-items"></div>
+            <button type="submit" class="primary-button">Save Delivery</button>
+          </form>
+          <p id="delivery-message" class="status-message"></p>
+        </section>
+      </main>
+    </section>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/layout.js"></script>
+  <script src="./js/operations.js"></script>
+  <script src="./js/deliveries.js"></script>
+</body>
+</html>
