@@ -1,9 +1,10 @@
-// API routes placeholder for dashboard summary endpoints.
+// API routes for KPI summaries and recent inventory activity.
 const express = require("express");
-const { getDashboardPlaceholder } = require("../controllers/dashboardController");
+const authMiddleware = require("../middleware/authMiddleware");
+const { getDashboard } = require("../controllers/dashboardController");
 
 const router = express.Router();
 
-router.get("/", getDashboardPlaceholder);
+router.get("/", authMiddleware, getDashboard);
 
 module.exports = router;
