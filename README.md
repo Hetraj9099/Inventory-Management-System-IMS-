@@ -1,127 +1,114 @@
-Inventory Management System (IMS)
-Overview
+# Inventory Management System (IMS)
 
-The Inventory Management System (IMS) is a web-based application designed to help organizations efficiently manage their inventory, track stock levels, and monitor inventory operations in real time.
+## Overview
+The **Inventory Management System (IMS)** is a web-based application designed to help organizations efficiently manage their inventory, track stock levels, and monitor inventory operations in real time.
 
-The system allows administrators and authorized users to manage products, warehouses, deliveries, transfers, and other inventory operations through an intuitive dashboard.
+The system allows administrators and authorized users to manage **products, warehouses, deliveries, transfers, and other inventory operations** through an intuitive dashboard.
 
-The project follows a full-stack architecture with a structured backend, interactive frontend, and a PostgreSQL database for reliable data storage.
+The project follows a **full-stack architecture** with a structured backend, interactive frontend, and a **PostgreSQL database** for reliable data storage.
 
-Key Features
-Inventory Management
+---
 
-Add new products to the inventory
+## Key Features
 
-Update product details
+### Inventory Management
+- Add new products to the inventory
+- Update product details
+- Remove products when necessary
+- Track stock quantities
 
-Remove products when necessary
+### Warehouse Management
+- Manage multiple warehouses
+- Monitor stock distribution across warehouses
 
-Track stock quantities
+### Delivery & Transfer Tracking
+- Manage outbound deliveries
+- Track stock transfers between warehouses
+- Maintain operation history
 
-Warehouse Management
+### Dashboard & Analytics
+- View key inventory data through the dashboard
+- Monitor system activity and stock movement
 
-Manage multiple warehouses
+---
 
-Monitor stock distribution across warehouses
+## Security Features
 
-Delivery & Transfer Tracking
+### Role-Based Access Control
+The system includes **three different user roles with different permissions**.
 
-Manage outbound deliveries
+#### Admin
+- Full system access
+- Manage inventory
+- Edit or delete users
+- Change roles of any user
+- Manage system settings
 
-Track stock transfers between warehouses
+#### Manager
+- Manage inventory operations
+- Update product and stock data
+- Limited administrative privileges
 
-Maintain operation history
+#### User
+- View inventory information
+- Restricted editing access
 
-Dashboard & Analytics
+---
 
-View key inventory data through the dashboard
-
-Monitor system activity and stock flow
-
-Security Features
-Role-Based Access Control
-
-The system provides three user roles with different permissions.
-
-Admin
-
-Full system access
-
-Manage users
-
-Change user roles
-
-Edit or delete any user
-
-Manage inventory and system settings
-
-Manager
-
-Manage inventory operations
-
-Update product and stock data
-
-Limited administrative privileges
-
-User
-
-View inventory information
-
-Restricted editing access
-
-Password Recovery System
-
-The system includes a Forgot Password feature with OTP verification.
+### Password Recovery with OTP
+The system includes a **Forgot Password feature with OTP verification**.
 
 Workflow:
 
+```
 User requests password reset
 → System sends OTP
 → User verifies OTP
 → User sets new password
+```
 
 This ensures secure account recovery.
 
-System Architecture
+---
 
-The application follows a three-layer architecture:
+## System Architecture
 
+The application follows a **three-layer architecture**:
+
+```
 Frontend (User Interface)
         ↓
 Backend API Server
         ↓
 PostgreSQL Database
-Frontend
+```
 
+### Frontend
 Handles user interaction and displays system data.
 
 Technologies used:
+- HTML
+- CSS
+- JavaScript
 
-HTML
-
-CSS
-
-JavaScript
-
-Backend
-
-Manages business logic and API endpoints.
+### Backend
+Handles application logic and API requests.
 
 Technologies used:
+- Node.js
+- Express.js
 
-Node.js
-
-Express.js
-
-Database
-
-Stores persistent data and manages relationships.
+### Database
+Stores all persistent data.
 
 Technology used:
+- PostgreSQL
 
-PostgreSQL
+---
 
-Project Structure
+## Project Structure
+
+```
 coreinventory
 │
 ├── backend
@@ -136,89 +123,95 @@ coreinventory
 │   ├── components
 │   ├── css
 │   ├── js
-│   └── html pages
+│   └── HTML pages
 │
 ├── database
 │   └── seed.sql
 │
 └── docs
     └── architecture.md
-How to Run the Project
-1. Clone the repository
+```
+
+---
+
+## Installation & Setup
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/Hetraj9099/Inventory-Management-System-IMS-.git
-2. Navigate into the project
+```
+
+### 2. Navigate to the Project Folder
+
+```bash
 cd coreinventory
-3. Install dependencies
+```
+
+### 3. Install Dependencies
+
+```bash
 npm install
-4. Configure PostgreSQL database
+```
 
-Create a PostgreSQL database and update the database configuration if required.
+### 4. Configure PostgreSQL
 
-5. Run the backend server
+Create a PostgreSQL database and update the database connection configuration if required.
+
+### 5. Run the Backend Server
+
+```bash
 node backend/server.js
+```
 
-Server will start at:
+Server will run at:
 
+```
 http://localhost:5000
-Team Structure
-Team Leader - Hetraj Chauhan
+```
 
+---
+
+## Team Structure
+
+### Team Leader - Hetraj Chauhan
 Responsibilities:
+- Project integration
+- Documentation
+- Testing
+- Debugging
+- Ensuring system functionality
 
-Project integration
-
-Documentation
-
-System testing
-
-Debugging
-
-Ensuring complete system functionality
-
-Member 2 Vicky Goplani — Backend Developer
-
+### Member 2 – Vicky Goplani - Backend Developer
 Responsibilities:
+- Backend server development
+- API implementation
+- Authentication and authorization
+- Business logic handling
 
-Backend server development
-
-API implementation
-
-Authentication and authorization
-
-Business logic handling
-
-Member 3 Raj Sinha — Frontend Developer
-
+### Member 3 – Raj Sinha - Frontend Developer
 Responsibilities:
+- User interface design
+- Frontend logic implementation
+- API integration with backend
 
-User interface design
-
-Frontend logic implementation
-
-API integration with backend
-
-Member 4 Paritosh Patel — Database Developer
-
+### Member 4 – Paritosh Patel - Database Developer
 Responsibilities:
+- Database schema design
+- Query management
+- Data consistency and integrity
 
-Database schema design
+---
 
-Query optimization
-
-Data management and integrity
-
-Future Improvements
-
+## Future Improvements
 Possible future enhancements include:
 
-Automated stock alerts
+- Automated stock alerts
+- Advanced analytics dashboard
+- Barcode or QR-based inventory tracking
+- Cloud deployment
 
-Advanced analytics dashboard
+---
 
-Barcode or QR inventory scanning
-
-Cloud deployment
-
-Conclusion
-
-The Inventory Management System provides a structured and scalable solution for managing inventory operations. With role-based access control, secure authentication mechanisms, and a robust architecture, the system ensures efficient and secure inventory management.
+## Conclusion
+The **Inventory Management System (IMS)** provides a structured and scalable solution for managing inventory operations. With role-based access control, secure authentication mechanisms, and a modular architecture, the system ensures efficient and reliable inventory management.
