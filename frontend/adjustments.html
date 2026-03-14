@@ -1,0 +1,51 @@
+<!-- Adjustments page for stock count reconciliation and quantity corrections. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoreInventory | Adjustments</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body data-page="adjustments">
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="app-main">
+      <header id="navbar" class="topbar"></header>
+      <main class="page-body two-column">
+        <section class="page-header-block">
+          <div>
+            <span class="eyebrow">Reconciliation</span>
+            <h1>Stock Adjustments</h1>
+            <p>Reconcile counted quantities against the system and log adjustment deltas for auditability.</p>
+          </div>
+          <div class="surface-note">
+            Ideal for cycle counting, damage reporting, and correcting warehouse discrepancies.
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header"><h1>Stock Adjustments</h1></div>
+          <div id="adjustments-table" class="table-wrap"></div>
+        </section>
+        <section class="panel">
+          <div class="panel-header"><h2>Create Adjustment</h2></div>
+          <form id="adjustment-form" class="stack-form">
+            <label><span>Warehouse</span><select name="warehouse_id" required></select></label>
+            <label><span>Location</span><select name="location_id" required></select></label>
+            <label><span>Product</span><select name="product_id" required></select></label>
+            <label><span>Counted Quantity</span><input type="number" name="counted_quantity" min="0" step="1" required /></label>
+            <label><span>Reason</span><textarea name="reason" rows="3"></textarea></label>
+            <button type="submit" class="primary-button">Save Adjustment</button>
+          </form>
+          <p id="adjustment-message" class="status-message"></p>
+        </section>
+      </main>
+    </section>
+  </div>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/layout.js"></script>
+  <script src="./js/adjustments.js"></script>
+</body>
+</html>
