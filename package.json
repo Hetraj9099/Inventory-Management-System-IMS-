@@ -6,7 +6,8 @@
   "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js",
-    "dev": "node --watch backend/server.js"
+    "dev": "node --watch backend/server.js",
+    "smoke:test": "node scripts/full-smoke-test.js"
   },
   "keywords": [
     "inventory",

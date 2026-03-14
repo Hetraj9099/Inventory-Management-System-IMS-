@@ -17,7 +17,6 @@ const { errorHandler, notFoundHandler } = require("./middleware/errorMiddleware"
 const db = require("./db");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 const frontendPath = path.join(__dirname, "..", "frontend");
 
 app.use(cors());
@@ -45,14 +44,27 @@ app.get("/", (_req, res) => {
 app.use(notFoundHandler);
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`CoreInventory server listening on http://localhost:${PORT}`);
+function startServer(port = process.env.PORT || 5000) {
+  const listener = app.listen(port, () => {
+    console.log(`CoreInventory server listening on http://localhost:${port}`);
 
-  db.query("SELECT 1")
-    .then(() => {
-      console.log("PostgreSQL connection check passed.");
-    })
-    .catch((error) => {
-      console.error("PostgreSQL connection check failed:", error.code || error.message);
-    });
-});
+    db.query("SELECT 1")
+      .then(() => {
+        console.log("PostgreSQL connection check passed.");
+      })
+      .catch((error) => {
+        console.error("PostgreSQL connection check failed:", error.code || error.message);
+      });
+  });
+
+  return listener;
+}
+
+if (require.main === module) {
+  startServer();
+}
+
+module.exports = {
+  app,
+  startServer,
+};
