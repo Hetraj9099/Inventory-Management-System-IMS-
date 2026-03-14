@@ -171,6 +171,18 @@ http://localhost:5000
 ```
 
 ---
+## Existing Accounts
+### Admin Account
+- email: admin@gmail.com
+- password: admin1
+
+### Inventory Manager Account
+- email: invent@gmail.com
+- password: invent
+
+### Warehouse Staff
+- email: staff@gmail.com
+- password: staff1
 
 ## Team Structure
 
