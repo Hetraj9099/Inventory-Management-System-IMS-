@@ -6,7 +6,7 @@ module.exports = {
     database: process.env.DB_NAME || "coreinventory",
     user: process.env.DB_USER || "postgres",
     password: process.env.DB_PASSWORD || "password",
-    ssl: process.env.DB_SSL === "true" ? { rejectUnauthorized: false } : false,
+    ssl: process.env.DB_SSL === "true" ? true : false,
   },
   mysql: {
     host: process.env.MYSQL_HOST || "localhost",
